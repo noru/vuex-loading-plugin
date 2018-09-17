@@ -65,11 +65,11 @@ function initLoadingModule(store, namespace, prefix) {
 }
 
 interface Option {
-  namespace: string
-  prefix: string
+  namespace?: string
+  prefix?: string
 }
 
-export function createLoadingPlugin(option: Option) {
+export function createLoadingPlugin(option: Option = {}) {
 
   NAMESPACE = option.namespace || NAMESPACE
   PREFIX = option.prefix || PREFIX
