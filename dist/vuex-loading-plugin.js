@@ -65,7 +65,7 @@ function initLoadingModule(store, namespace, prefix) {
     });
     store.registerModule(namespace, RawModule);
 }
-function createLoading(option) {
+function createLoadingPlugin(option) {
     NAMESPACE = option.namespace || NAMESPACE;
     PREFIX = option.prefix || PREFIX;
     return function (store) {
@@ -73,7 +73,12 @@ function createLoading(option) {
         initLoadingModule(store, NAMESPACE, PREFIX);
     };
 }
+var index = {
+    create: createLoadingPlugin,
+    wrap: wrapActions,
+};
 
 exports.wrapActions = wrapActions;
-exports.default = createLoading;
+exports.createLoadingPlugin = createLoadingPlugin;
+exports.default = index;
 /* https://github.com/noru */

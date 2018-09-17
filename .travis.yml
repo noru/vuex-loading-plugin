@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+- '8'
+dist: trusty
+sudo: false
+addons:
+  chrome: stable
+before_install:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+after_success:
+- bash travis/commit.sh
+deploy:
+  provider: npm
+  email: nooooru@gmail.com
+  api_key:
+    secure: KLsbwpgTSg6vVtMcPmMDGMb5GPuTL5krW9xvDIHH9230YhmIOQhvxE+cmHMP5FeFWNmVnYtIJk709A1/UF3ZN80ElanL3nn1HVcni8k5fyjsxK+W/Ixya7Wtg7Nmv1Qi/jvcgm+2D+amdZGnT/KNBXEC2G/kvZpWlF5il84W6S3ohPAuGrmH0wO6ohN75hNi++llPHIl/nCkDP7oFp10cFJ0a6dGPHN1ma/fD4rBbN1oSVK2NhUHiMp3FEjuQWn6GpA2RV1YiTdTzudd7KvqSikuPAwNyRs65wNU3crziUebxN4w7Gzgcb05FoOIlzRSiIcoDB+9SaapLhNNuMRcgczqZP0T28g8SktFL43Y3Mf1QXqoyRVGNfMC8Y/+bietCBxTpsewjP/OnUa1G7sIJbamk0A7Gb3hOfV89PO+b9uKfBc5l5AoVwLcvXGMgUJ50KHxbtGii6lE+BzqTCpTm8VISV+YH0fdmb5JSxJ3t475Hjsl3k+9Lo2kiG4hN1BesJL+VLpr2YLNZbC5ZUURSuqF9qAFOFwJe5Nc5NKIU2XBWcOmPrUWfftKUN97NsAKtWckqsflylQZLdLTXL+3MypjVTc91dBRKgQx0BhySPbA1mRlksCWYW4NDhzgDdfTYKEA1OwXUKo/rZ0cQMJ/6C2BlwVHNjhGK5UzKTPJ6Rw=
+  on:
+    tags: true
+    repo: noru/vuex-loading-plugin
+env:
+  global:
+    secure: APZNrzqjuu/UukYoA7vvnN2e3V2i8ZX7R/AOXwWFfhKVOhcRj8zD/iAwy0cFFR51yAxzlYBUlFx4qsebEbupqos5060k/gR5r5ObuSsLhNRxIrBrPlOmb/P0V/gsOY2rETTVERqwAG/qRYUzMliFkkj7RlkdAwbbz5dkZdwK8yHHrhlrCgykglCCXDCLpN4MtXezBSLoKaPa8OTAxmlhAHgb7Jl/ypagfssqJqzw0Saj9Fsm72sS6CBh/JvMeaY2jWoq60yvWxmXo7oNHmzYwBM/qhjp/wwS083ImD13DbmhOeq5Exp6UwSBy0zejLMxPPX0pcCVTPG3sbfksBPtOxlmTgym0qiONah/c5k4cNdDtUrt7zrpqbl4fzLewodWNj8hLIwYwzI8AXFOJKIbunRdYsh7l8FOLN0rIjeZKveAfxeVMMNJrUTZFMZJ60Q1VfxWy89lynPIQS1MMXbq/HMcKaqcrshZq1CltqcxiaLAxjlYDaacqidJ2uHCpfjvSxXTZRYnCBgTj53VGM0i7AGSetVWQBcpHrGXLN1z0eI2xKr10DAmob7EpXpTlX29ECy6LvEeyhajUWPTZ6yusdZJoJzVTjChg414QUWN4ldwUIsol6fhwIEQxu28E3CZDoYvbi69PmzIfxGFh2aggKS7sPkbhDsT1WpvsmBdN+Y=
