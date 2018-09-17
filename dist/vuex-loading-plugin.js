@@ -66,6 +66,7 @@ function initLoadingModule(store, namespace, prefix) {
     store.registerModule(namespace, RawModule);
 }
 function createLoadingPlugin(option) {
+    if (option === void 0) { option = {}; }
     NAMESPACE = option.namespace || NAMESPACE;
     PREFIX = option.prefix || PREFIX;
     return function (store) {
