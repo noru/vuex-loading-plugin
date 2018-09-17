@@ -1,0 +1,33 @@
+{
+  "name": "vuex-loading-plugin",
+  "version": "0.0.1",
+  "description": "Dead simple and intuitive loading management for Vuex",
+  "main": "dist/vuex-loading-plugin.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noru/vuex-loading-plugin.git"
+  },
+  "scripts": {
+    "dist": "rollup -c",
+    "test": "echo no test"
+  },
+  "keywords": [
+    "vue",
+    "vuex",
+    "loading"
+  ],
+  "author": "nooooru@gmail.com",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "2.x",
+    "vuex": "2.x"
+  },
+  "devDependencies": {
+    "rollup": "^0.66.0",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-typescript2": "^0.17.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3"
+  }
+}
