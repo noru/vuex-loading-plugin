@@ -36,13 +36,13 @@ const createloadingFunc = (key) => {
   }
 }
 
-const actionWrapper = (context: any, old: any, key: string) => {
+const actionWrapper = (context: any, old: any, key: string, ...rest: any[]) => {
   try {
     context.$l = createloadingFunc(PREFIX + key)
-    old(context)
+    old(context, ...rest)
   } catch (e) {
     console.error(e)
-    old(context)
+    old(context, ...rest)
   }
 }
 
@@ -50,7 +50,7 @@ export function wrapActions(actions: any) {
   Object.keys(actions)
     .forEach(key => {
       let old = actions[key]
-      actions[key] = (context) => actionWrapper(context, old, key)
+      actions[key] = (context, ...rest) => actionWrapper(context, old, key, ...rest)
     })
   return actions
 }
