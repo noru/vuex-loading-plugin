@@ -8,7 +8,7 @@ var RawModule = {
         ongoing: 0,
     },
     getters: {
-        global: function (state) {
+        $globalLoading: function (state) {
             return state.ongoing > 0;
         },
     },
