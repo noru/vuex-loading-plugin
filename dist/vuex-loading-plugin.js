@@ -40,20 +40,30 @@ var createloadingFunc = function (key) {
     };
 };
 var actionWrapper = function (context, old, key) {
+    var rest = [];
+    for (var _i = 3; _i < arguments.length; _i++) {
+        rest[_i - 3] = arguments[_i];
+    }
     try {
         context.$l = createloadingFunc(PREFIX + key);
-        old(context);
+        old.apply(void 0, [context].concat(rest));
     }
     catch (e) {
         console.error(e);
-        old(context);
+        old.apply(void 0, [context].concat(rest));
     }
 };
 function wrapActions(actions) {
     Object.keys(actions)
         .forEach(function (key) {
         var old = actions[key];
-        actions[key] = function (context) { return actionWrapper(context, old, key); };
+        actions[key] = function (context) {
+            var rest = [];
+            for (var _i = 1; _i < arguments.length; _i++) {
+                rest[_i - 1] = arguments[_i];
+            }
+            return actionWrapper.apply(void 0, [context, old, key].concat(rest));
+        };
     });
     return actions;
 }
