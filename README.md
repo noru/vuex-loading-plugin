@@ -14,6 +14,7 @@ Handling intermedia state is not a easy task in vue/vuex, but it should be, with
 `npm i --save vuex-loading-plugin`
 
 #### Quickstart
+
 ```javascript
 // when creating store...
 import VuexLoading from 'vuex-loading-plugin'
@@ -21,20 +22,23 @@ import VuexLoading from 'vuex-loading-plugin'
 let store = Vuex.Store({
     ...
     actions: VuexLoading.wrap(actions),
-    plugins: [VuexLoading.create({
-      namespace: 'loading', // default
-      prefix: 'l_',         // default
-    })],
+    plugins: [VuexLoading.create(
+      // optional stuff...
+      // {
+      //   namespace: 'loading', // default
+      //   prefix: 'l_',         // default
+      // }
+    )],
   })
 
 // That's it! Then in your actions you can write...
 async someAction ({ commit, $l }) {
   $l.start() // check out your store, under module "loading", "l_someAction" = true
-  commit('overview', await fetch('something'))
+  commit('mutation', await fetch('something'))
   $l.end()  // "l_someAction" = false
-  // bonus, there is a global loading state, called...that's right! "global"!
 },
 
+// also, store.getters.$globalLoading can be used as a global indicator.
 
 ```
 

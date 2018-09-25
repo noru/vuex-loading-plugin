@@ -3,7 +3,7 @@ const RawModule = {
     ongoing: 0,
   },
   getters: {
-    global(state) {
+    $globalLoading(state) {
       return state.ongoing > 0
     },
   },
