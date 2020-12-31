@@ -46,12 +46,11 @@ var actionWrapper = function (context, old, key) {
     }
     try {
         context.$l = createloadingFunc(PREFIX + key);
-        old.apply(void 0, [context].concat(rest));
     }
     catch (e) {
         console.error(e);
-        old.apply(void 0, [context].concat(rest));
     }
+    return old.apply(void 0, [context].concat(rest));
 };
 function wrapActions(actions) {
     Object.keys(actions)

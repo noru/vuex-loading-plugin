@@ -39,11 +39,10 @@ const createloadingFunc = (key) => {
 const actionWrapper = (context: any, old: any, key: string, ...rest: any[]) => {
   try {
     context.$l = createloadingFunc(PREFIX + key)
-    old(context, ...rest)
   } catch (e) {
     console.error(e)
-    old(context, ...rest)
   }
+  return old(context, ...rest)
 }
 
 export function wrapActions(actions: any) {

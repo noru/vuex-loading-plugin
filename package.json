@@ -1,6 +1,6 @@
 {
   "name": "vuex-loading-plugin",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Dead simple and intuitive loading management for Vuex",
   "main": "dist/vuex-loading-plugin.min.js",
   "repository": {
